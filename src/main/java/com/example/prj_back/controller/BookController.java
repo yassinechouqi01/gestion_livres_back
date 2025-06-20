@@ -57,6 +57,9 @@ public class BookController {
                     if (bookDetails.getIsbn() != null) existingBook.setIsbn(bookDetails.getIsbn());
                     existingBook.setPublicationYear(bookDetails.getPublicationYear());
                     existingBook.setAvailable(bookDetails.isAvailable());
+                    if (bookDetails.getCategory() != null) existingBook.setCategory(bookDetails.getCategory());
+                    if (bookDetails.getCondition() != null) existingBook.setCondition(bookDetails.getCondition());
+                    if (bookDetails.getLocation() != null) existingBook.setLocation(bookDetails.getLocation());
                     return ResponseEntity.ok(bookRepository.save(existingBook));
                 })
                 .orElse(ResponseEntity.notFound().build());
